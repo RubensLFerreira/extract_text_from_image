@@ -30,3 +30,7 @@ if imagem_carregada is not None:
 
    # passo 3: exibir o texto
      print(texto)
+
+   # Contar o número de palavras no texto extraído
+    numero_palavras = len(texto.split())
+    st.subheader(f"Número de Palavras Extraídas da imagem: {numero_palavras}")
