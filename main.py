@@ -1,19 +1,29 @@
+import streamlit as st
 import pytesseract
 import cv2
+from PIL import Image
+import numpy as np
 
-# https://stackoverflow.com/questions/50951955/pytesseract-tesseractnotfound-error-tesseract-is-not-installed-or-its-not-i
+# Configurar o caminho do Tesseract
+caminho_do_tesseract = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = caminho_do_tesseract
 
-# passo 1: ler a imagem
-imagem = cv2.imread('imagem_texto.png')
+# Título da aplicação no Streamlit
+st.title("Leitura de Texto em Imagem usando Tesseract e Streamlit")
 
-# Corrigir o caminho do Tesseract
-caminho = r"" # Colocar o caminho do Tesseract
+# Carregar a imagem
+imagem_carregada = st.file_uploader("Escolha uma imagem", type=["png", "jpg", "jpeg"])
 
-# Configurar o executável do Tesseract
-pytesseract.pytesseract.tesseract_cmd = caminho + r"\tesseract.exe"
+if imagem_carregada is not None:
+    # Carregar a imagem para exibição e processamento
+    imagem = Image.open(imagem_carregada)
+    st.image(imagem, caption="Imagem Carregada", use_column_width=True)
 
-# passo 2: pedir pro tesseract ler texto da imagem
-texto = pytesseract.image_to_string(imagem)
+    # Converter a imagem para um formato que o Tesseract entenda (usando OpenCV)
+    imagem_cv = cv2.cvtColor(np.array(imagem), cv2.COLOR_RGB2BGR)
 
-# passo 3: exibir o texto
-print(texto)
+   # passo 2: pedir pro tesseract ler texto da imagem
+     texto = pytesseract.image_to_string(imagem)
+
+   # passo 3: exibir o texto
+     print(texto)
