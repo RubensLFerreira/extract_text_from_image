@@ -5,8 +5,8 @@ from PIL import Image
 import numpy as np
 
 # Configurar o caminho do Tesseract
-caminho_do_tesseract = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-pytesseract.pytesseract.tesseract_cmd = caminho_do_tesseract
+caminho_do_tesseract = r"C:\Program Files\Tesseract-OCR"
+pytesseract.pytesseract.tesseract_cmd = caminho_do_tesseract + r"C:\Program Files\Tesseract-OCR"
 
 # Título da aplicação no Streamlit
 st.title("Leitura de Texto em Imagem usando Tesseract e Streamlit")
