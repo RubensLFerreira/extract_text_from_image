@@ -1,3 +1,6 @@
+# https://stackoverflow.com/questions/50951955/pytesseract-tesseractnotfound-error-tesseract-is-not-installed-or-its-not-i
+
+
 import streamlit as st
 import pytesseract
 import cv2
@@ -6,7 +9,7 @@ import numpy as np
 
 # Configurar o caminho do Tesseract
 caminho_do_tesseract = r"C:\Program Files\Tesseract-OCR"
-pytesseract.pytesseract.tesseract_cmd = caminho_do_tesseract + r"C:\Program Files\Tesseract-OCR"
+pytesseract.pytesseract.tesseract_cmd = caminho_do_tesseract + r"\tesseract.exe"
 
 # Título da aplicação no Streamlit
 st.title("Leitura de Texto em Imagem usando Tesseract e Streamlit")
