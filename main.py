@@ -28,9 +28,11 @@ if imagem_carregada is not None:
    # passo 2: pedir pro tesseract ler texto da imagem
      texto = pytesseract.image_to_string(imagem)
 
-   # passo 3: exibir o texto
-     print(texto)
-
-   # Contar o número de palavras no texto extraído
+   # Passo 3:Contar o número de palavras no texto extraído
     numero_palavras = len(texto.split())
     st.subheader(f"Número de Palavras Extraídas da imagem: {numero_palavras}")
+
+   # passo 4: exibir o texto
+     st.write(texto)
+
+   
