@@ -26,13 +26,13 @@ if imagem_carregada is not None:
     imagem_cv = cv2.cvtColor(np.array(imagem), cv2.COLOR_RGB2BGR)
 
    # passo 2: pedir pro tesseract ler texto da imagem
-     texto = pytesseract.image_to_string(imagem)
+    texto = pytesseract.image_to_string(imagem)
 
    # Passo 3:Contar o número de palavras no texto extraído
     numero_palavras = len(texto.split())
     st.subheader(f"Número de Palavras Extraídas da imagem: {numero_palavras}")
 
    # passo 4: exibir o texto
-     st.write(texto)
+    st.write(texto)
 
    
